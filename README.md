@@ -1,6 +1,5 @@
 # React Router NoMatch
 [![npm](https://img.shields.io/npm/v/react-router-nomatch.svg)](https://www.npmjs.com/package/react-router-nomatch)
-![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/react-router-nomatch.svg)
 
 React Router interface that renders a component when no child route is matched.
 
