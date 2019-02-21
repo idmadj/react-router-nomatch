@@ -4,7 +4,11 @@
   "description": "React Router interface that renders a component when no child route is matched.",
   "license": "MIT",
   "repository": "idmadj/react-router-nomatch",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "prepublishOnly": "npm run build"
+  },
   "keywords": [
     "react-router",
     "match",
@@ -17,8 +21,14 @@
     "package"
   ],
   "dependencies": {
-    "react": "^16.8.x",
-    "react-router-dom": "^4.3.x",
-    "prop-types": "^15.x.x"
+    "prop-types": "^15.7.2",
+    "react": "^16.8.3",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0"
   }
 }
