@@ -1,6 +1,6 @@
 {
   "name": "react-router-nomatch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Router interface that renders a component when no child route is matched.",
   "license": "MIT",
   "repository": "idmadj/react-router-nomatch",
