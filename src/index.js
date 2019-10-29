@@ -1,15 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { matchPath, withRouter } from 'react-router-dom';
+import { matchPath, useLocation } from 'react-router-dom';
+import isNil from 'lodash/isNil';
 
-const NoMatch = (props) => {
-    const { children, location, component, render, alwaysRender } = props;
+const NoMatch = ({children, component, render, alwaysRender}) => {
+    const location = useLocation();
     let match = false;
 
     React.Children.forEach(children, child => {
         if (!match && React.isValidElement(child)) {
             const path = child.props.path || child.props.from;
-            if (path != null) {
+            if (!isNil(path)) {
                 match = !!matchPath(location.pathname, { ...child.props, path });
             }
         }
@@ -19,7 +20,7 @@ const NoMatch = (props) => {
         { (!match || alwaysRender) && (component ? React.createElement(component, {match}) : (render ? render(match) : null)) }
         { children }
     </>);
-}
+};
 
 NoMatch.propTypes = {
     children: PropTypes.node,
@@ -31,6 +32,6 @@ NoMatch.propTypes = {
 
 NoMatch.defaultProps = {
     alwaysRender: false
-}
+};
 
-export default withRouter(NoMatch);
+export default NoMatch;
